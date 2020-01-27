@@ -1,0 +1,19 @@
+{
+    // Options for our compiler
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "CommonJS",
+        "rootDir": "src",
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "lib": ["ES6","DOM"],
+        "esModuleInterop": true,
+    },
+    "include": [ // compile in the following directories
+        "src/**/*.ts",
+    ],
+    // leave out the node modules,
+    "exclude": [
+        "node_modules",
+    ]
+}
