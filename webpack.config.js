@@ -2,9 +2,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // webpack.config.js
 module.exports = [
+  // This config targets our main process in electron
   {
     mode: 'development',
-    entry: './src/electron.ts',
+    entry: './src/index.ts',
     target: 'electron-main',
     module: {
       rules: [{
@@ -15,12 +16,13 @@ module.exports = [
     },
     output: {
       path: __dirname + '/dist',
-      filename: 'electron.js'
+      filename: 'index.js'
     }
   },
+  // this config targets the renderer process in electron.
   {
     mode: 'development',
-    entry: './src/react.tsx',
+    entry: './src/App.tsx',
     target: 'electron-renderer',
     devtool: 'source-map',
     module: { rules: [{
@@ -30,7 +32,7 @@ module.exports = [
     }] },
     output: {
       path: __dirname + '/dist',
-      filename: 'react.js'
+      filename: 'App.js'
     },
     plugins: [
       new HtmlWebpackPlugin({
