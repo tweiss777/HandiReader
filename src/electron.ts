@@ -1,7 +1,9 @@
+// Apps main entry point
 import {app, BrowserWindow} from 'electron';
 
 function createWindow(): void{
     // our browser window with our defined window properties
+    console.log("creating window")
     let window =  new BrowserWindow({
         width: 800,
         height: 600,
@@ -22,15 +24,3 @@ function createWindow(): void{
 }
 
 app.on('ready',createWindow);
-
-app.on('window-all-closed', () =>{
-    if(process.platform == 'darwin'){
-        app.quit();
-    }
-})
-
-app.on('activate', ()=>{
-    if(window === null){
-        createWindow();
-    }
-})
