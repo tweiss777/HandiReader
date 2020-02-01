@@ -1,7 +1,6 @@
 // Import libraries and other created react components here below.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestComponent from './TestComponent/TestComponent'
 // This is the root component where each component in our app will be nested.
 const Index = () => {
     
