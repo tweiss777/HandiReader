@@ -31,6 +31,9 @@ module.exports = [
       include: /src/,
       use: [{ loader: 'ts-loader' }]
     }] },
+    resolve: {
+      extensions: ['.ts', '.js', '.json','.tsx']
+    },
     output: {
       path: __dirname + '/dist',
       filename: 'App.js'
