@@ -16,7 +16,8 @@ module.exports = [
     },
     output: {
       path: __dirname + '/dist',
-      filename: 'index.js'
+      filename: 'index.js',
+      devtoolModuleFilenameTemplate: '[absolute-resource-path]'
     }
   },
   // this config targets the renderer process in electron.

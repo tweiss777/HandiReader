@@ -3,7 +3,6 @@ import {app, BrowserWindow} from 'electron';
 
 function createWindow(): void{
     // our browser window with our defined window properties
-    console.log("creating window")
     let window =  new BrowserWindow({
         width: 800,
         height: 600,
