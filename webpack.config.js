@@ -26,13 +26,33 @@ module.exports = [
     entry: './src/App.tsx',
     target: 'electron-renderer',
     devtool: 'source-map',
-    module: { rules: [{
-      test: /\.ts(x?)$/,
-      include: /src/,
-      use: [{ loader: 'ts-loader' }]
-    }] },
+    module: 
+    { 
+      rules: [{
+        test: /\.ts(x?)$/,
+        include: /src/,
+        use: [{loader:'ts-loader'}]
+        },
+        {
+        test:/\.css$/,
+        include: /src/,
+        use: [
+          'style-loader',
+          {
+            loader: 'typings-for-css-modules-loader',
+            options:{
+              modules: true,
+              namedExport: true,
+              camelCase: true,
+            }
+          }
+        ]
+
+        }
+      ] 
+    },
     resolve: {
-      extensions: ['.ts', '.js', '.json','.tsx']
+      extensions: ['.ts', '.js', '.json','.tsx','.css']
     },
     output: {
       path: __dirname + '/dist',
@@ -43,5 +63,5 @@ module.exports = [
         template: './src/index.html'
       })
     ]
-  }
+  },
 ];

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import IProps from './Interfaces/IProps';
 import IState from './Interfaces/IState';
 
-// our main container
-// Note: In typescript
+// Example component that showcases how child sends data to parent component
+// Note: In typescript you need to declare state and prop interfaces to use state and props in your component
 export default class Parent extends Component<IProps,IState>{
     // handler: any;
     constructor(props: IProps){
