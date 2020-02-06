@@ -1,5 +1,6 @@
 // webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
 // webpack.config.js
 module.exports = [
   // This config targets our main process in electron
@@ -35,7 +36,7 @@ module.exports = [
         },
         {
         test:/\.css$/,
-        include: /src/,
+        // include: /src/,
         use: [
           'style-loader',
           {
@@ -52,7 +53,7 @@ module.exports = [
       ] 
     },
     resolve: {
-      extensions: ['.ts', '.js', '.json','.tsx','.css']
+      extensions: ['.ts', '.js', '.json','.tsx','.css'],
     },
     output: {
       path: __dirname + '/dist',
