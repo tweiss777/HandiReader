@@ -2,7 +2,8 @@ import React from 'react'
 import IProps from '../Interfaces/IProps';
 import IState from '../Interfaces/IState';
 import * as s from './container.css'
-import Button from 'react-bootstrap/Button';
+import SideBar from '../SideBar/SideBar';
+// The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
     constructor(props){
         super(props);
@@ -11,10 +12,17 @@ export default class Container extends React.Component<IProps,IState>{
 
     render(){
         return(
-            <div>
-                <Button variant="danger">Buton</Button>
-                <h1 className={s.foo}>Container class where everything in the project goes...</h1>
+            <div className="container">
+            <h1 className={s.test}>React has successfully loaded!</h1>
+                <div className="float-left">
+                    <SideBar />
+                </div>
+                <div className="float-right">
+                    Where the text will be read
+                </div>
             </div>
+            
+
         );
     }
 }
