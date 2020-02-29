@@ -1,7 +1,12 @@
 .sideBarStyling{
 
-    height: ;
-    width: 25%;
-    border-style: solid;
-    color: red;
 }
+
+.sideBarBtn{
+    width: 250px;
+}
+
+.btnStack{
+    display: block;
+}
+

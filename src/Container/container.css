@@ -1,3 +1,29 @@
 .test{
-    color: rgb(75, 238, 0)
+    color: rgb(75, 238, 0);
+    border-style: solid;
+    border-color: blue;
 }
+
+.readerContainer{
+    float: right;
+    border-style: solid;
+    border-color: rgb(255, 0, 0);
+    height:85% ;
+    width: 75%;
+    min-width: 150px;
+}
+
+.sideBarContainer{
+    float: left;
+    border-style: solid;
+    border-color: rgb(0, 255, 0);
+    min-width: 76.25px;
+    width: 25%;
+}
+
+.containerHeight{
+    height: inherit;
+}
+
+
+

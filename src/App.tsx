@@ -6,9 +6,7 @@ import Container from './Container/Container'
 // This is the root component where each component in our app will be nested.
 const Index = () => {
     // Place your main container beneath the div tags
-    return <div className="container-fluid">
-        <Container />
-    </div>
+    return <Container />
 }
 
 console.log("Rendering content in Electron window");
