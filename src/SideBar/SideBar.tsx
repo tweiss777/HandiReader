@@ -21,10 +21,10 @@ export default class SideBar extends React.Component<IProps,IState>{
         return(
             <div className={s.sideBarStyling}>
                 <div className={s.btnStack}>
-                    <Button variant="primary" onClick={this.openFile}>Open </Button>
+                    <button className={[s.sideBarBtn, s.primary].join(' ')} onClick={this.openFile}>Open</button>
                 </div>
                 <div className={s.btnStack}>
-                    <Button variant="primary" onClick={this.speakText}>Speech</Button>
+                    <button className={[s.sideBarBtn, s.primary].join(' ')} onClick={this.speakText}>Speech</button>
                 </div>
             </div>
         );
