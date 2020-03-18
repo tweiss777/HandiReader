@@ -1,4 +1,5 @@
 export default interface IState {
     // declare states here
-    messageShown:boolean
+    messageShown?: boolean; //delete declaration and component
+    bodyText?: string,
 }

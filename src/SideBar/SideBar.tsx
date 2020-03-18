@@ -2,24 +2,23 @@ import React from "react";
 import IProps from "../Interfaces/IProps";
 import IState from "../Interfaces/IState";
 import * as s from './SideBar.css';
+import extractContent from "../docx_parser/docx";
 export default class SideBar extends React.Component<IProps,IState>{
     fileReference: React.RefObject<HTMLInputElement>;
     constructor(props){
         super(props);
         
-        // method binds
-        this.openFile = this.openFile.bind(this);
+        // method bind
         this.speakText = this.speakText.bind(this)
         this.fileReference = React.createRef();
-
-
-
     }
-    // this will use the docx reader installed from npm
-    openFile(event){
+    
+    handleSubmit = (event) =>{ 
+        extractContent(this.fileReference.current.files[0].path).then((res) =>{
+            this.props.handleText(res)
+        })
         event.preventDefault();
-        console.log("File name")
-        console.log(this.fileReference.current.files[0]);
+        
     }
     
     // this will utilize a text to speech api.
@@ -32,7 +31,7 @@ export default class SideBar extends React.Component<IProps,IState>{
                 
 {/*                     
                     <button className={[s.sideBarBtn, s.primary].join(' ')} onClick={this.openFile}>Open</button> */}
-                    <form onSubmit={this.openFile}>
+                    <form onSubmit={this.handleSubmit}>
 
                         <div className={s.btnStack}>
                             {/* Fix styling for the input tag */}
