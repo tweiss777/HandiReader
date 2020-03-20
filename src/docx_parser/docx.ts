@@ -1,5 +1,4 @@
 import StreamZip from 'node-stream-zip';
-import { resolve } from 'dns';
 
 /*
     Function to open the zip file, read the document.xml file and return its contents.
