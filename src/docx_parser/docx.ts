@@ -44,11 +44,10 @@ import StreamZip from 'node-stream-zip';
 /*
     Function to extraxt the text between xml tags and return the text as a string
 */
-export default function extractContent(path:string): Promise<string> {
+export function extractContent(path:string): Promise<string> {
     return new Promise(
         (resolve,reject) => {
             
-            type NewType = any;
 
             extractDocXml(path).then(
                 
@@ -70,6 +69,14 @@ export default function extractContent(path:string): Promise<string> {
                     
                 }
             );
+        }
+    )
+}
+
+export function extractParagraphs(path:string): Promise<string> {
+    return new Promise(
+        (resolve,reject) => {
+            
         }
     )
 }

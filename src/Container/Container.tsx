@@ -4,14 +4,13 @@ import IState from '../Interfaces/IState';
 import * as c from './container.css';
 import * as s from '../SideBar/SideBar.css'
 import SideBar from '../SideBar/SideBar';
-import extractContent from '../docx_parser/docx';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
     constructor(props){
         super(props);
         this.state = {
-            bodyText: '',
+            bodyText: 'Upload text here',
         }
         
     }
