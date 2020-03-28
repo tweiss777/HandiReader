@@ -44,39 +44,34 @@ import StreamZip from 'node-stream-zip';
 /*
     Function to extraxt the text between xml tags and return the text as a string
 */
-export function extractContent(path:string): Promise<string> {
+export function extractContent(path:string): Promise<Array<string>> {
     return new Promise(
         (resolve,reject) => {
             
-
+            var paragraphs: string[] = [];
             extractDocXml(path).then(
                 
                 // fix error here
                 (res:string):void => {
-                     
                     
-                    // empty body
-                    var body = '';
-                    var components = res.split('<w:t');
-                    
-                    for(var i= 0;i<= components.length-1;i++){
-                        var tags = components[i].split('>');
-                        var content = tags[1].replace(/<.*$/,'');
-                        body = body + content;
-                        // console.log(body)
-                    }
-                    resolve(body);
+                    var paragraphsWTags = res.split('<w:p')
+                    paragraphsWTags.forEach(paragraphWTag => {
+                        var body = ''
+                        var components = paragraphWTag.split('w:t');
+                        for(var i = 0; i<= components.length-1;i++){
+                            var tags = components[i].split('>')
+                            var content = tags[1].replace(/<.*$/,'');
+                            body = body + content
+                            
+                        }
+                        paragraphs.push(body);
+                        resolve(paragraphs)
+                    });
                     
                 }
-            );
-        }
-    )
-}
-
-export function extractParagraphs(path:string): Promise<string> {
-    return new Promise(
-        (resolve,reject) => {
-            
+            ).catch(err => {
+                reject(err)
+            })
         }
     )
 }

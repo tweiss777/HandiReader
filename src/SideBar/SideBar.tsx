@@ -2,7 +2,7 @@ import React from "react";
 import IProps from "../Interfaces/IProps";
 import IState from "../Interfaces/IState";
 import * as s from './SideBar.css';
-import extractContent from "../docx_parser/docx";
+import {extractContent} from "../docx_parser/docx";
 export default class SideBar extends React.Component<IProps,IState>{
     fileReference: React.RefObject<HTMLInputElement>;
     constructor(props){

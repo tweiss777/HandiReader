@@ -16,7 +16,9 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     handleText = (textValue) => {
+
         this.setState({bodyText:textValue});
+        console.log(this.state.bodyText)
     }
 
 
