@@ -32,6 +32,7 @@ export default class Container extends React.Component<IProps,IState>{
                 </div>
                 {/* Container for the reader */}
                 <div className={[c.readerContainer].join(' ')}>
+                    {/* Here we can make a reader component where the text is passed as a prop */}
                     {this.state.bodyText}
                 </div>
             </div>
