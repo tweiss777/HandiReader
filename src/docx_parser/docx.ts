@@ -60,8 +60,14 @@ export function extractContent(path:string): Promise<Array<string>> {
                         var components = paragraphWTag.split('w:t');
                         for(var i = 0; i<= components.length-1;i++){
                             var tags = components[i].split('>')
-                            var content = tags[1].replace(/<.*$/,'');
-                            body = body + content
+                            try{
+                                var content = tags[1].replace(/<.*$/,'');
+                                body = body + content
+                            }
+                            catch(error){
+                                console.log(error.message);
+                                
+                            }
                             
                         }
                         paragraphs.push(body);
