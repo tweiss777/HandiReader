@@ -15,6 +15,7 @@ export default class SideBar extends React.Component<IProps,IState>{
     
     handleSubmit = (event) =>{ 
         extractContent(this.fileReference.current.files[0].path).then((res) =>{
+            // this is how you pass data from the child to the parent component
             this.props.handleText(res)
         })
         event.preventDefault();

@@ -4,13 +4,14 @@ import IState from '../Interfaces/IState';
 import * as c from './container.css';
 import * as s from '../SideBar/SideBar.css'
 import SideBar from '../SideBar/SideBar';
+import Reader from '../Reader/Reader';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
     constructor(props){
         super(props);
         this.state = {
-            bodyText: 'Upload text here',
+            bodyText: ['Upload text here'],
         }
         
     }
@@ -18,7 +19,6 @@ export default class Container extends React.Component<IProps,IState>{
     handleText = (textValue) => {
 
         this.setState({bodyText:textValue});
-        console.log(this.state.bodyText)
     }
 
 
@@ -33,7 +33,7 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* Container for the reader */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
-                    {this.state.bodyText}
+                    <Reader text={this.state.bodyText} />
                 </div>
             </div>
             
