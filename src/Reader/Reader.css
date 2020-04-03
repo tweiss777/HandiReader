@@ -1,4 +1,9 @@
-.ReaderBorder{
-    border-style: solid;
-    border-color: red;
+
+.paragraphStyle{
+    font: size 12; ;
+}
+
+.paragraphStyle:hover{
+    background-color: rgb(255, 238, 0);
+    color: black;
 }

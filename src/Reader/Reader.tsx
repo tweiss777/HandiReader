@@ -19,12 +19,12 @@ export default class Reader extends React.Component<IProps,IState>{
             }
             else{
              
-                text[i] = <p>{text[i]}</p>
+                text[i] = <p className={r.paragraphStyle}>{text[i]}</p>
             }
         }
         return(
 
-            <div className={r.ReaderBorder}>
+            <div>
                 {text}
             </div>
 

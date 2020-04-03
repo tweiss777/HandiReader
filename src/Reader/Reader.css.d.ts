@@ -1,2 +1,1 @@
-export const ReaderBorder: string;
-export const readerBorder: string;
+export const paragraphStyle: string;
