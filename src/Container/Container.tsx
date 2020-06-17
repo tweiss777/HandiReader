@@ -5,6 +5,7 @@ import * as c from './container.css';
 import * as s from '../SideBar/SideBar.css'
 import SideBar from '../SideBar/SideBar';
 import Reader from '../Reader/Reader';
+import * as r from '../Reader/Reader.css';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
@@ -17,10 +18,16 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     handleText = (textValue) => {
+        //pass html here
+        var textToRender: any[] = textValue.map(t =>{
+            return <p className={r.paragraphStyle}>{t}</p>
+        })
 
-        this.setState({bodyText:textValue});
+        this.setState({bodyText:textToRender});
+        console.log(this.state.bodyText);
     }
-
+    
+    // Create a handler to strike the text and set the state of bodytext
 
     render(){
         return(

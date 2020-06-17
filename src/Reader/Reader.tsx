@@ -7,25 +7,36 @@ import * as r from './Reader.css';
 export default class Reader extends React.Component<IProps,IState>{
     constructor(props){
         super(props);
+        this.state = {
+            hover: false,
+        }
 
     }
 
+    strikeText = (event) => {
+        this.setState(
+            {
+                hover: !this.state.hover
+
+            }
+        );
+
+        console.log(this.state.hover);
+    }
 
     render(){
-        var text: any[] = this.props.text;
-        for(var i = 0; i<= text.length - 1; i++){
-            if(text[i].length == 0){
-                text[i] = <br />
-            }
-            else{
-             
-                text[i] = <p className={r.paragraphStyle}>{text[i]}</p>
-            }
-        }
-        return(
+        var textToRender: any[] = this.props.text;
+       
+        // var textToRender: any[] = text.map(t =>{
+        //     return <p className={r.paragraphStyle}>{t}</p>
+        // })
 
-            <div>
-                {text}
+    
+        return(
+            // Need to get text to strikethrough on hover
+            // onMouseEnter handles events triggered when hoverring over element
+            <div onMouseEnter={this.strikeText} onMouseLeave={this.strikeText}>
+                {textToRender}
             </div>
 
         );

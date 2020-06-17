@@ -6,4 +6,5 @@
 .paragraphStyle:hover{
     background-color: rgb(255, 238, 0);
     color: black;
+    text-decoration: none;
 }
