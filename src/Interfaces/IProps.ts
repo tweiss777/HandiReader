@@ -3,4 +3,5 @@ export default interface IProps{
     doSomething?:any; //delete declaration and component
     handleText?:any; //declaration for the handletext function
     text?:any; // declaration for the text property in the Reader component
+    handleStrikeThrough?:any // declaration for strikethrough function
 }

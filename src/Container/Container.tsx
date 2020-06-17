@@ -24,9 +24,14 @@ export default class Container extends React.Component<IProps,IState>{
         })
 
         this.setState({bodyText:textToRender});
-        console.log(this.state.bodyText);
+        console.log()
     }
     
+    strikeText = (text) => {
+        // console log used for debugging purposes
+        console.log(text);
+
+    }
     // Create a handler to strike the text and set the state of bodytext
 
     render(){
@@ -40,7 +45,7 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* Container for the reader */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
-                    <Reader text={this.state.bodyText} />
+                    <Reader text={this.state.bodyText} handleStrikeThrough={this.strikeText}/>
                 </div>
             </div>
             

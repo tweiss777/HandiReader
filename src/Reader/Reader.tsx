@@ -13,15 +13,8 @@ export default class Reader extends React.Component<IProps,IState>{
 
     }
 
-    strikeText = (event) => {
-        this.setState(
-            {
-                hover: !this.state.hover
-
-            }
-        );
-
-        console.log(this.state.hover);
+    handleStrikeThrough = (event) => {
+       this.props.handleStrikeThrough(event.target.value)
     }
 
     render(){
@@ -35,7 +28,7 @@ export default class Reader extends React.Component<IProps,IState>{
         return(
             // Need to get text to strikethrough on hover
             // onMouseEnter handles events triggered when hoverring over element
-            <div onMouseEnter={this.strikeText} onMouseLeave={this.strikeText}>
+            <div onMouseEnter={this.handleStrikeThrough} onMouseLeave={this.handleStrikeThrough}>
                 {textToRender}
             </div>
 
