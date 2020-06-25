@@ -18,23 +18,39 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     handleText = (textValue) => {
-        //pass html here
-        var textToRender: any[] = textValue.map(t =>{
-            return <p className={r.paragraphStyle}>{t}</p>
-        })
+
+        
+        var textToRender: any[] = []
+        for (let i = 0; i < textToRender.length; i++) {
+            // Add code here 
+            
+        }
+        
+        //textValue.map(t =>{
+        //     return <p className={r.paragraphStyle}>{t}</p>
+        // })
 
         this.setState({bodyText:textToRender});
-        console.log()
+        
     }
     
     strikeText = (text) => {
-        // console log used for debugging purposes
+        //iterate through text
+        //if text is not hovered over -->strike through
         console.log(text);
+        
+
+        this.setState({
+            bodyText:text
+        })
 
     }
     // Create a handler to strike the text and set the state of bodytext
 
     render(){
+        
+        
+
         return(
             // create a css class that will replace container fluid
             <div className={["container-fluid",c.containerHeight].join(' ')}>
@@ -45,7 +61,7 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* Container for the reader */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
-                    <Reader text={this.state.bodyText} handleStrikeThrough={this.strikeText}/>
+                    <Reader text={this.state.bodyText} strikeText={this.strikeText}/>
                 </div>
             </div>
             
