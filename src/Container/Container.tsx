@@ -9,6 +9,8 @@ import * as r from '../Reader/Reader.css';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
+    // global dictionary to compare html tags
+    tagsHovered: {[id:number]:boolean} = {};
     constructor(props){
         super(props);
         this.state = {
@@ -18,17 +20,19 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     handleText = (textValue) => {
-
-        
+        // initialize 
         var textToRender: any[] = []
-        for (let i = 0; i < textToRender.length; i++) {
-            // Add code here 
+        // populate the dictionary with values
+        for (let i = 0; i < textValue.length; i++) {
+            this.tagsHovered[i] = false; 
             
         }
         
-        //textValue.map(t =>{
-        //     return <p className={r.paragraphStyle}>{t}</p>
-        // })
+        for (let i = 0; i < textValue.length; i++) {
+            textToRender.push(<p key={i} className={r.paragraphStyle}>{textValue[i]}</p>)
+            
+        }
+
 
         this.setState({bodyText:textToRender});
         
@@ -37,7 +41,7 @@ export default class Container extends React.Component<IProps,IState>{
     strikeText = (text) => {
         //iterate through text
         //if text is not hovered over -->strike through
-        console.log(text);
+
         
 
         this.setState({
