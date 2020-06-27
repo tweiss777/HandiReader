@@ -9,8 +9,7 @@ import * as r from '../Reader/Reader.css';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
-    // global dictionary to compare html tags
-    tagsHovered: {[id:number]:boolean} = {};
+    tags: {id:number,tag:HTMLElement,isHovered:boolean}[]= [];
     constructor(props){
         super(props);
         this.state = {
@@ -24,7 +23,7 @@ export default class Container extends React.Component<IProps,IState>{
         var textToRender: any[] = []
         // populate the dictionary with values
         for (let i = 0; i < textValue.length; i++) {
-            this.tagsHovered[i] = false; 
+            // Add code right here
             
         }
         
