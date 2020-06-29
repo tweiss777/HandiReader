@@ -4,7 +4,7 @@ export default interface IState {
     messageShown?: boolean; //delete declaration and component
     
     // The body text itself to be presented in the Reader component.
-    bodyText?: any[],
+    bodyText?: {id:number,tag:any,isHovered:boolean}[],
     
     // used for hovering over the text in our reader component
     

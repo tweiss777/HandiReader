@@ -8,7 +8,7 @@ export default class Reader extends React.Component<IProps,IState>{
     constructor(props){
         super(props);
         this.state = {
-            hover: false,
+            hover: false, // Remove this soon
         }
 
     }

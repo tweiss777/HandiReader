@@ -9,31 +9,21 @@ import * as r from '../Reader/Reader.css';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
-    tags: {id:number,tag:HTMLElement,isHovered:boolean}[]= [];
+    // tags: {id:number,tag:HTMLElement,isHovered:boolean}[]= [];
+    
     constructor(props){
         super(props);
         this.state = {
-            bodyText: ['Upload text here'],
+            bodyText: [{id:0,tag:<p key={0} className={r.paragraphStyle}>Enter Text Here</p>,isHovered:false}],
         }
         
     }
 
     handleText = (textValue) => {
-        // initialize 
-        var textToRender: any[] = []
-        // populate the dictionary with values
-        for (let i = 0; i < textValue.length; i++) {
-            // Add code right here
-            
-        }
+      
         
-        for (let i = 0; i < textValue.length; i++) {
-            textToRender.push(<p key={i} className={r.paragraphStyle}>{textValue[i]}</p>)
-            
-        }
 
-
-        this.setState({bodyText:textToRender});
+        // this.setState({bodyText:textToRender});
         
     }
     
