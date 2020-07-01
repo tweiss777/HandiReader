@@ -9,7 +9,7 @@ import * as r from '../Reader/Reader.css';
 
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
-    // tags: {id:number,tag:HTMLElement,isHovered:boolean}[]= [];
+    tags: {id:number,text:string,isHovered:boolean}[]= [];
     
     constructor(props){
         super(props);
@@ -20,10 +20,12 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     handleText = (textValue) => {
-      
         
-
-        // this.setState({bodyText:textToRender});
+        for (let i = 0; i < textValue.length; i++) {
+            this.tags.push({id:i,text:textValue[i],isHovered:false});
+        }
+        
+        this.setState({bodyText:this.tags});
         
     }
     
