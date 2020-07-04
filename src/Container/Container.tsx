@@ -14,7 +14,7 @@ export default class Container extends React.Component<IProps,IState>{
     constructor(props){
         super(props);
         this.state = {
-            bodyText: [{id:0,tag:<p key={0} className={r.paragraphStyle}>Enter Text Here</p>,isHovered:false}],
+            bodyText: [{id:0,text:"Enter Text here",isHovered:false}],
         }
         
     }
@@ -29,14 +29,17 @@ export default class Container extends React.Component<IProps,IState>{
         
     }
     
-    strikeText = (text) => {
+    strikeText = (id,highlight) => {
         //iterate through text
         //if text is not hovered over -->strike through
+        
+        this.tags[id].isHovered = highlight;
 
+        
         
 
         this.setState({
-            bodyText:text
+            bodyText:this.tags,
         })
 
     }
