@@ -11,6 +11,8 @@ import * as r from '../Reader/Reader.css';
 export default class Container extends React.Component<IProps,IState>{
     tags: {id:number,text:string,isHovered:boolean}[]= [];
     
+    // This keeps track of all the paragraphs hovered
+    paragraphsHovered: number = 0;
     constructor(props){
         super(props);
         this.state = {
@@ -20,7 +22,8 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     handleText = (textValue) => {
-        
+        // Set number of paragraphs hovered to 0 whenever new text is loaded
+        this.paragraphsHovered = 0;
         for (let i = 0; i < textValue.length; i++) {
             this.tags.push({id:i,text:textValue[i],isHovered:false});
         }
@@ -33,11 +36,8 @@ export default class Container extends React.Component<IProps,IState>{
         //iterate through text
         //if text is not hovered over -->strike through
         
-        this.tags[id].isHovered = highlight;
-
-        
-        
-
+           this.tags[id].isHovered = highlight;
+           console.log(this.tags[id].isHovered);
         this.setState({
             bodyText:this.tags,
         })
