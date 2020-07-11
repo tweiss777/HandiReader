@@ -5,36 +5,56 @@ import * as r from './Reader.css';
 
 
 export default class Reader extends React.Component<IProps,IState>{
+    textToRender:any[];
     constructor(props){
         super(props);
-        this.state = {
-            hover: false, // Remove this soon
-        }
-
     }
 
-    strikeText = (id,highlight) => {
-        this.props.strikeText(id,highlight)
+    strikeText = (id) => {
+        this.props.strikeText(id)
+    }
+
+    unstrikeText = (id) => {
+        this.props.unstrikeText(id);
     }
 
     render(){
         console.log(this.props.text);
        
-        var textToRender:any[]= this.props.text.map(t=>{
-            if(t.isHovered){
-                return <p className={r.paragraphStyle} key={t.id} onMouseEnter={()=> this.strikeText(t.id,false)} onMouseLeave={()=>this.strikeText(t.id,true)}>{t.text}</p>
-            }
+        // Need to unstrike text when one of the texts isn't highlighted
 
-            return <p className={r.paragraphStyleStrikeThrough} key={t.id} onMouseEnter={()=> this.strikeText(t.id,true)} onMouseLeave={()=>this.strikeText(t.id,false)}>{t.text}</p>
-
-            
-        })
+        if(this.props.docNotHovered){
+            this.textToRender = this.props.text.map(t =>
+            {
+            return <p onMouseEnter={() => this.strikeText(t.id)} onMouseLeave={() => this.unstrikeText(t.id)} key={t.id}>{t.text}</p>
+            })
+            console.log("whole text not hovered.")
+        }
+        else{
+                this.textToRender = this.props.text.map(t=>{            
+                
+                console.log("passing 1st if statement");
+                
+                if(t.isHovered && t.isHovered != null){
+                    return <p className={r.paragraphStyle} key={t.id} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
+                }            
+                
+                console.log("passing 2nd if statement");
+                if(!t.isHovered && t.isHovered != null){
+                    return <p className={r.paragraphStyleStrikeThrough} key={t.id} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
+                }
+                
+                console.log("passed 1st if statement");
+                return <p key={t.id}>{t.text}</p>   
+            })
+        }
+         
 
         return(
             // Need to get text to strikethrough on hover
             // onMouseEnter handles events triggered when hoverring over element
             <div>
-                {textToRender}
+                {this.textToRender}
             </div>
 
         );

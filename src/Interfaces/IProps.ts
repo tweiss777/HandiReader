@@ -4,4 +4,8 @@ export default interface IProps{
     handleText?:any; //declaration for the handletext function
     text?:any; // declaration for the text property in the Reader component
     strikeText?:any // declaration for strikethrough function
+
+    unstrikeText?:any // declaration for unstrikethrough function
+
+    docNotHovered?: boolean;
 }

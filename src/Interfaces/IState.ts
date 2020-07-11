@@ -8,6 +8,7 @@ export default interface IState {
     
     // used for hovering over the text in our reader component
     
-    hover?: boolean; 
+    // state var that determines if the whole text isn't highlighted
+    textNotHovered?:boolean
 }
 

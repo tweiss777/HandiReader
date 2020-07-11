@@ -11,20 +11,18 @@ import * as r from '../Reader/Reader.css';
 export default class Container extends React.Component<IProps,IState>{
     tags: {id:number,text:string,isHovered:boolean}[]= [];
     
-    // This keeps track of all the paragraphs hovered
-    paragraphsHovered: number = 0;
     constructor(props){
         super(props);
         this.state = {
-            bodyText: [{id:0,text:"Enter Text here",isHovered:false}],
+            bodyText: [{id:0,text:"Enter Text here",isHovered:null}],
+            textNotHovered: true,
         }
         
     }
 
     handleText = (textValue) => {
         // Set number of paragraphs hovered to 0 whenever new text is loaded
-        this.paragraphsHovered = 0;
-        for (let i = 0; i < textValue.length; i++) {
+        for(let i = 0; i < textValue.length; i++) {
             this.tags.push({id:i,text:textValue[i],isHovered:false});
         }
         
@@ -32,16 +30,29 @@ export default class Container extends React.Component<IProps,IState>{
         
     }
     
-    strikeText = (id,highlight) => {
+    strikeText = (id) => {
         //iterate through text
-        //if text is not hovered over -->strike through
+        //if text is not hovered over --> strike through
         
-           this.tags[id].isHovered = highlight;
+           this.tags[id].isHovered = true;
+
+        //Output for debugging purposes
            console.log(this.tags[id].isHovered);
         this.setState({
             bodyText:this.tags,
+            textNotHovered:false,
         })
 
+    }
+
+    unstrikeText = (id) =>
+    {
+        console.log("unstrikeText Called");
+        this.tags[id].isHovered = false;
+        this.setState({
+            bodyText: this.tags,
+            textNotHovered:true, 
+        })
     }
     // Create a handler to strike the text and set the state of bodytext
 
@@ -59,7 +70,8 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* Container for the reader */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
-                    <Reader text={this.state.bodyText} strikeText={this.strikeText}/>
+                    <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
+                    docNotHovered={this.state.textNotHovered}/>
                 </div>
             </div>
             
