@@ -2,11 +2,8 @@ import React from 'react'
 import IProps from '../Interfaces/IProps';
 import IState from '../Interfaces/IState';
 import * as c from './container.css';
-import * as s from '../SideBar/SideBar.css'
 import SideBar from '../SideBar/SideBar';
 import Reader from '../Reader/Reader';
-import * as r from '../Reader/Reader.css';
-
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
     tags: {id:number,text:string,isHovered:boolean}[]= [];
