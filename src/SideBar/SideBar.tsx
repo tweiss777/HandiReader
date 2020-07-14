@@ -40,6 +40,8 @@ export default class SideBar extends React.Component<IProps,IState>{
                         </div>
 
                         <div className={s.btnStack}>
+                            {/* Once a file is loaded on to the reader
+                            the file must be cleared from the file uploader and the button text potentially changed from open to clear */}
                             <button className={[s.sideBarBtn,s.primary].join(' ')} type="submit">Open</button>
                         </div>
                     </form>
