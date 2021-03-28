@@ -55,7 +55,7 @@ export default class Reader extends React.Component<IProps,IState>{
         return(
             // Need to get text to strikethrough on hover
             // onMouseEnter handles events triggered when hoverring over element
-            <div>
+            <div style={{margin:'30px'}}>
                 {this.textToRender}
             </div>
 
