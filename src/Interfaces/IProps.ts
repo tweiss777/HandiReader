@@ -8,4 +8,15 @@ export default interface IProps{
     unstrikeText?:any // declaration for unstrikethrough function
 
     docNotHovered?: boolean;
+
+    // prop function that calls the disableOpen event handler in the container component
+    updateInfo?: any;
+
+    // prop toggling whether open is disabled
+    openDisabled?: any;
+
+    // prop for the current filename
+    currentFileName?: string;
+
+
 }

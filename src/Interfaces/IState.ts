@@ -10,5 +10,12 @@ export default interface IState {
     
     // state var that determines if the whole text isn't highlighted
     textNotHovered?:boolean
+
+    // state that tells us if a text is open or not
+    // if open, the open button should be unclickable
+    openDisabled?: boolean
+
+    // State that holds the current filename which influences the open file button's behavior
+    currentFileName?: string
 }
 
