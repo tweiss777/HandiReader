@@ -8,6 +8,7 @@ export default class Reader extends React.Component<IProps,IState>{
     textToRender:any[];
     constructor(props){
         super(props);
+        this.getText = this.getText.bind(this);
     }
 
     strikeText = (id) => {
@@ -16,6 +17,24 @@ export default class Reader extends React.Component<IProps,IState>{
 
     unstrikeText = (id) => {
         this.props.unstrikeText(id);
+    }
+
+    getText():string {
+        // Example of type assertion
+        const doc =  document as any;
+        
+        var text: string  = "";
+        if (window.getSelection) {
+            text = window.getSelection().toString();
+        } else if (doc.selection && doc.selection.type != "Control") {
+                console.log(doc.selection)
+            console.log(doc.selection.type)
+            text = doc.selection.createRange().text;
+        }
+        console.log(text)
+        return text;
+        
+        
     }
 
     render(){
@@ -38,7 +57,7 @@ export default class Reader extends React.Component<IProps,IState>{
                 // console.log("passing 1st if statement");
                 
                 if(t.isHovered && t.isHovered != null){
-                    return <p className={r.paragraphStyle} key={t.id} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
+                    return <p className={r.paragraphStyle} key={t.id} onMouseUp={this.getText} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
                 }            
                 // Output used for debugging purposes
                 // console.log("passing 2nd if statement");

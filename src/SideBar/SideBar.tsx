@@ -26,7 +26,6 @@ export default class SideBar extends React.Component<IProps,IState>{
             this.props.handleText(res)
             this.props.updateInfo(this.fileName,true); 
         })
-        console.log(this.fileReference.current.files[0].name)
         event.preventDefault();
         
     }
@@ -44,8 +43,6 @@ export default class SideBar extends React.Component<IProps,IState>{
     // remove event listener + evaluate filename
     fileInputClicked = (event) =>{
         let fileName = event.target.files[0].name;
-        console.log("event handler")
-        console.log(fileName);
         if(this.props.currentFileName != fileName){
  
             this.props.updateInfo(fileName,false);

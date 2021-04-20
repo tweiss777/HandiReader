@@ -46,7 +46,6 @@ export default class Container extends React.Component<IProps,IState>{
     // event handler that disables the open file button
     // in addition to updating the current fileName 
     updateInfo = (fileName,isDiabled) =>{
-        console.log("disabling open file")
         this.setState({
             openDisabled: isDiabled, 
             currentFileName: fileName,
@@ -64,7 +63,6 @@ export default class Container extends React.Component<IProps,IState>{
            this.tags[id].isHovered = true;
 
         //Output for debugging purposes
-           console.log(this.tags[id].isHovered);
         this.setState({
             bodyText:this.tags,
             textNotHovered:false,
@@ -74,7 +72,6 @@ export default class Container extends React.Component<IProps,IState>{
     // Event handler gets passed in as a prop to the Reader component
     unstrikeText = (id) =>
     {
-        console.log("unstrikeText Called");
         this.tags[id].isHovered = false;
         this.setState({
             bodyText: this.tags,
