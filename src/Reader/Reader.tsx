@@ -8,7 +8,6 @@ export default class Reader extends React.Component<IProps,IState>{
     textToRender:any[];
     constructor(props){
         super(props);
-        this.getText = this.getText.bind(this);
     }
 
     strikeText = (id) => {
@@ -19,7 +18,7 @@ export default class Reader extends React.Component<IProps,IState>{
         this.props.unstrikeText(id);
     }
 
-    getText():string {
+    getText = ():string => {
         // Example of type assertion
         const doc =  document as any;
         
@@ -31,7 +30,8 @@ export default class Reader extends React.Component<IProps,IState>{
             console.log(doc.selection.type)
             text = doc.selection.createRange().text;
         }
-        console.log(text)
+        console.log(text);
+        console.log(text.length);
         return text;
         
         

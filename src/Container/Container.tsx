@@ -97,6 +97,7 @@ export default class Container extends React.Component<IProps,IState>{
                     <SideBar currentFileName={this.state.currentFileName}handleText={this.handleText} updateInfo={this.updateInfo} openDisabled={this.state.openDisabled} />
                 </div>
                 {/* Container for the reader */}
+                {/* This is what needs to blurred when the user highlights a piece of text */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
                     <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
