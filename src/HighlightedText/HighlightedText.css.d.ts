@@ -1,1 +1,1 @@
-export const testClass: string;
+export const highlightContainer: string;

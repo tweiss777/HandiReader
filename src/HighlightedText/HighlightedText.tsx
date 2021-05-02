@@ -14,9 +14,14 @@ export default class HighlightedText extends React.Component<IProps,IState>{
 
     render(){
         var text: string = this.props.highlightedText as string;
+
+        var testText: string = "Test string"
         return(
-            <p className={h.testClass}>{text}</p>
-            )
+            <div className={h.highlightContainer}>
+                <p style={{position:'relative',top:'45%'}}>{testText}</p>
+            </div>
+        ) 
+        
     }
 
 }

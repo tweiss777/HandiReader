@@ -5,6 +5,7 @@ import * as c from './container.css';
 import SideBar from '../SideBar/SideBar';
 import Reader from '../Reader/Reader';
 import { timers } from 'jquery';
+import  HighlightedText from '../HighlightedText/HighlightedText';
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
     tags: {id:number,text:string,isHovered:boolean}[]= [];
@@ -76,6 +77,7 @@ export default class Container extends React.Component<IProps,IState>{
         this.setState({
             bodyText: this.tags,
             textNotHovered:true,
+            highlightedText: "",
             
 
         })
@@ -100,6 +102,7 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* This is what needs to blurred when the user highlights a piece of text */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
+                    {/* <HighlightedText /> This is the component that will appear when the text is highlighted */}
                     <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
                     docNotHovered={this.state.textNotHovered}/>
                 </div>

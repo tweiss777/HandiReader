@@ -17,5 +17,8 @@ export default interface IState {
 
     // State that holds the current filename which influences the open file button's behavior
     currentFileName?: string
+
+
+    highlightedText?: string
 }
 

@@ -18,7 +18,7 @@ export default class Reader extends React.Component<IProps,IState>{
         this.props.unstrikeText(id);
     }
 
-    getText = ():string => {
+    getHighlighedText = ():void => {
         // Example of type assertion
         const doc =  document as any;
         
@@ -30,9 +30,15 @@ export default class Reader extends React.Component<IProps,IState>{
             console.log(doc.selection.type)
             text = doc.selection.createRange().text;
         }
+        
+        // output used for debugging purposes
         console.log(text);
         console.log(text.length);
-        return text;
+        
+        // set the state of the 
+        this.setState({
+            highlightedText:text,
+        })
         
         
     }
@@ -57,7 +63,7 @@ export default class Reader extends React.Component<IProps,IState>{
                 // console.log("passing 1st if statement");
                 
                 if(t.isHovered && t.isHovered != null){
-                    return <p className={r.paragraphStyle} key={t.id} onMouseUp={this.getText} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
+                    return <p className={r.paragraphStyle} key={t.id} onMouseUp={this.getHighlighedText} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
                 }            
                 // Output used for debugging purposes
                 // console.log("passing 2nd if statement");

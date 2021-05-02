@@ -1,4 +1,17 @@
-.testClass{
-    background-color:red;
-}
+
+.highlight-container {
+    text-align: center;
+    display: block;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    backdrop-filter: blur(5px);
+}    
+
+
+
+
+
+
+
 
