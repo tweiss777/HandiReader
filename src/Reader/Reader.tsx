@@ -6,6 +6,10 @@ import * as r from './Reader.css';
 
 export default class Reader extends React.Component<IProps,IState>{
     textToRender:any[];
+
+    // global variable to store highlighted text 
+    text: string = "" 
+    
     constructor(props){
         super(props);
     }
@@ -18,7 +22,7 @@ export default class Reader extends React.Component<IProps,IState>{
         this.props.unstrikeText(id);
     }
 
-    getHighlighedText = ():void => {
+    GetHighighlighedText = () => {
         // Example of type assertion
         const doc =  document as any;
         
@@ -35,10 +39,9 @@ export default class Reader extends React.Component<IProps,IState>{
         console.log(text);
         console.log(text.length);
         
-        // set the state of the 
-        this.setState({
-            highlightedText:text,
-        })
+        
+        
+        
         
         
     }
@@ -63,7 +66,7 @@ export default class Reader extends React.Component<IProps,IState>{
                 // console.log("passing 1st if statement");
                 
                 if(t.isHovered && t.isHovered != null){
-                    return <p className={r.paragraphStyle} key={t.id} onMouseUp={this.getHighlighedText} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
+                    return <p className={r.paragraphStyle} key={t.id} onMouseUp={this.GetHighighlighedText} onMouseEnter={()=> this.strikeText(t.id)} onMouseLeave={()=>this.unstrikeText(t.id)}>{t.text}</p>
                 }            
                 // Output used for debugging purposes
                 // console.log("passing 2nd if statement");

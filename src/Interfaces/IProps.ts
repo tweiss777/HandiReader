@@ -18,7 +18,8 @@ export default interface IProps{
     // prop for the current filename
     currentFileName?: string;
 
-    highlightedText?: string;
+
+    highlightedText?: any;
 
 
 }
