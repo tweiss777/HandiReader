@@ -115,7 +115,7 @@ export default class Container extends React.Component<IProps,IState>{
                     {/* Here we can make a reader component where the text is passed as a prop */}
                     {/* <HighlightedText /> This is the component that will appear when the text is highlighted */}
                     <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
-                    docNotHovered={this.state.textNotHovered} highlightedText={this.state.highlightedText} />
+                    docNotHovered={this.state.textNotHovered} highlightedText={this.highlighedText} />
                 </div>
             </div>
             

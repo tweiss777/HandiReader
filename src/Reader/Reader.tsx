@@ -39,7 +39,7 @@ export default class Reader extends React.Component<IProps,IState>{
         console.log(text);
         console.log(text.length);
         
-        
+        this.props.highlightedText(text)
         
         
         
