@@ -56,12 +56,11 @@ export default class Container extends React.Component<IProps,IState>{
     }
 
     highlighedText = (text) =>{
-        console.log("From Container" + " " + text)
         this.setState(
             {
-                highlightedText: text,
-            }
-        )
+                highlightedText: text
+            });
+
     }
 
     //#endregion
@@ -100,7 +99,7 @@ export default class Container extends React.Component<IProps,IState>{
 //#region render function
     render(){
         
-        
+        console.log(this.state.highlightedText.length);
 
         return(
             // create a css class that will replace container fluid
@@ -113,7 +112,8 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* This is what needs to blurred when the user highlights a piece of text */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
-                    {/* <HighlightedText /> This is the component that will appear when the text is highlighted */}
+                    {this.state.highlightedText !== ""? <HighlightedText highlightedText={this.state.highlightedText} />: null }
+
                     <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
                     docNotHovered={this.state.textNotHovered} highlightedText={this.highlighedText} />
                 </div>
