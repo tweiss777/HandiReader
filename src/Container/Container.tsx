@@ -55,10 +55,17 @@ export default class Container extends React.Component<IProps,IState>{
         })
     }
 
+    // event handler for updating state of highlighted text
+    // if text is highlighed by the user, then the highlighted 
+    // text component should be rendered
     highlighedText = (text) =>{
+        console.log("text being passed => " + text )
         this.setState(
             {
                 highlightedText: text
+            },() =>
+            {
+                console.log("from the setState => " + this.state.highlightedText);
             });
 
     }
@@ -77,7 +84,7 @@ export default class Container extends React.Component<IProps,IState>{
         this.setState({
             bodyText:this.tags,
             textNotHovered:false,
-        })
+        });
 
     }
     // Event handler gets passed in as a prop to the Reader component
@@ -99,7 +106,7 @@ export default class Container extends React.Component<IProps,IState>{
 //#region render function
     render(){
         
-        console.log(this.state.highlightedText.length);
+        console.log("from the render function => " + this.state.highlightedText);
 
         return(
             // create a css class that will replace container fluid
@@ -112,7 +119,8 @@ export default class Container extends React.Component<IProps,IState>{
                 {/* This is what needs to blurred when the user highlights a piece of text */}
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
-                    {this.state.highlightedText !== ""? <HighlightedText highlightedText={this.state.highlightedText} />: null }
+                    {/* This doesn't work for some reason... */}
+                    {this.state.highlightedText !== ""? <HighlightedText highlightedText={this.state.highlightedText} />: null } 
 
                     <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
                     docNotHovered={this.state.textNotHovered} highlightedText={this.highlighedText} />

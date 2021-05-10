@@ -30,14 +30,14 @@ export default class Reader extends React.Component<IProps,IState>{
         if (window.getSelection) {
             text = window.getSelection().toString();
         } else if (doc.selection && doc.selection.type != "Control") {
-                console.log(doc.selection)
-            console.log(doc.selection.type)
+            //     console.log(doc.selection)
+            // console.log(doc.selection.type)
             text = doc.selection.createRange().text;
         }
         
         // output used for debugging purposes
-        console.log(text);
-        console.log(text.length);
+        // console.log(text);
+        // console.log(text.length);
         
         this.props.highlightedText(text)
         
