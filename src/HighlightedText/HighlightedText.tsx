@@ -19,7 +19,7 @@ export default class HighlightedText extends React.Component<IProps,IState>{
         // var testText: string = "Test string"
         return(
             <div className={h.highlightContainer}>
-                <p style={{position:'relative',top:'45%'}}>{text}</p>
+                <p className={h.highlightedText}>{text}</p>
             </div>
         ) 
         

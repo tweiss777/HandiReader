@@ -6,7 +6,14 @@
     height: inherit;
     width: inherit;
     backdrop-filter: blur(5px);
-}    
+}
+
+.highlighted-text {
+    position:'relative';
+    top:'45%';
+    font-size: 20pt;
+    font-weight: bold;
+}
 
 
 
