@@ -22,6 +22,8 @@ export default class Reader extends React.Component<IProps,IState>{
         this.props.unstrikeText(id);
     }
 
+    // returns text highlighted back to parent component
+    // or Container.tsx
     GetHighighlighedText = () => {
         // Example of type assertion
         const doc =  document as any;

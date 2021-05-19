@@ -70,6 +70,12 @@ export default class Container extends React.Component<IProps,IState>{
 
     }
 
+    unhighlightText = () =>{
+        this.setState({
+            highlightedText: "",
+        })
+    }
+
     //#endregion
     // Event handler gets passed in as a prop to the Reader component
     
@@ -99,6 +105,8 @@ export default class Container extends React.Component<IProps,IState>{
         })
     }
 
+
+
     //#endregion
     // Create a handler to strike the text and set the state of bodytext
 
@@ -119,7 +127,7 @@ export default class Container extends React.Component<IProps,IState>{
                 <div className={[c.readerContainer].join(' ')}>
                     {/* Here we can make a reader component where the text is passed as a prop */}
                     {/* This doesn't work for some reason... */}
-                    {this.state.highlightedText !== ""? <HighlightedText highlightedText={this.state.highlightedText} />: null } 
+                    {this.state.highlightedText !== ""? <HighlightedText highlightedText={this.state.highlightedText} unhighlightText={this.unhighlightText} />: null } 
 
                     <Reader text={this.state.bodyText} strikeText={this.strikeText}unstrikeText={this.unstrikeText}
                     docNotHovered={this.state.textNotHovered} highlightedText={this.highlightedText} />
