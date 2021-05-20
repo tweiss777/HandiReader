@@ -11,7 +11,8 @@ export default class HighlightedText extends React.Component<IProps,IState>{
     }
 
 
-    UnHighlightText = () => {
+    UnHighlightText = (event) => {
+        // console.log(event.keyCode);
         console.log("un-highlighting text");
         this.props.unhighlightText();
         
@@ -26,7 +27,7 @@ export default class HighlightedText extends React.Component<IProps,IState>{
         // var testText: string = "Test string"
         return(
             <div className={h.highlightContainer}>
-                <p  className={h.highlightedText}>{text}</p>
+                <p onClick={this.UnHighlightText} className={h.highlightedText}>{text}</p>
             </div>
         ) 
         
