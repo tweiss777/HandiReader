@@ -4,7 +4,6 @@ import IState from '../Interfaces/IState';
 import * as c from './container.css';
 import SideBar from '../SideBar/SideBar';
 import Reader from '../Reader/Reader';
-import { timers } from 'jquery';
 import  HighlightedText from '../HighlightedText/HighlightedText';
 // The container is the parent class
 export default class Container extends React.Component<IProps,IState>{
