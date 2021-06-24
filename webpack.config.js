@@ -1,4 +1,4 @@
-// webpack.config.js
+/ webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 // webpack.config.js
@@ -24,7 +24,7 @@ module.exports = [
   // this config targets the renderer process in electron.
   {
     mode: 'development',
-    entry: './src/App.tsx',
+    entry: './src/App.tsx', // the file that is run by npm
     target: 'electron-renderer',
     devtool: 'source-map',
     module: 
@@ -38,7 +38,7 @@ module.exports = [
         test:/\.css$/,
         // include: /src/,
         use: [
-          'style-loader',
+          'style-loader', // Our css loader for TypeScript
           {
             loader: 'typings-for-css-modules-loader',
             options:{
@@ -55,9 +55,10 @@ module.exports = [
     resolve: {
       extensions: ['.ts', '.js', '.json','.tsx','.css'],
     },
+    // Our output of the file where the typescript is transpiled into javascript
     output: {
       path: __dirname + '/dist',
-      filename: 'App.js'
+      filename: 'App.js' // where all our typescript gets written in javascript
     },
     plugins: [
       new HtmlWebpackPlugin({
