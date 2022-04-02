@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { Button } from 'react-bootstrap';
 import IProps from '../Interfaces/IProps';
 import IState from '../Interfaces/IState';
@@ -23,7 +23,7 @@ export default class HighlightedText extends React.Component<IProps,IState>{
         
     }
 
-    speakText: Function = (text: string){
+    speakText: MouseEventHandler = () => {
         console.log("speaking text")
     }
 
@@ -35,7 +35,7 @@ export default class HighlightedText extends React.Component<IProps,IState>{
         return(
             <div className={h.highlightContainer}>
                 <p onClick={this.UnHighlightText} className={h.highlightedText}>{text}</p>
-                <Button>Speak text</Button>
+                <Button onClick={this.speakText}>Speak text</Button>
 
             </div>
         ) 
