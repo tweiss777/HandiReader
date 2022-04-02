@@ -20,6 +20,7 @@ export default class Container extends React.Component<IProps,IState>{
             // The state stores the current filename
             currentFileName: "",
             highlightedText: "",
+            isSpeaking: false
 
 
             

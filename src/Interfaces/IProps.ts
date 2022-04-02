@@ -22,4 +22,5 @@ export default interface IProps{
     highlightedText?: any;
 
     unhighlightText?: any;
+    speakText?: Function
 }
