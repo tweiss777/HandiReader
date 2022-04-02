@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import IProps from '../Interfaces/IProps';
 import IState from '../Interfaces/IState';
 import * as h from './HighlightedText.css';
@@ -8,6 +9,10 @@ export default class HighlightedText extends React.Component<IProps,IState>{
 
     constructor(props){
         super(props);
+        this.state = {
+            isSpeaking: false
+            
+        }
     }
 
 
@@ -18,7 +23,9 @@ export default class HighlightedText extends React.Component<IProps,IState>{
         
     }
 
-
+    speakText: Function = (text: string){
+        console.log("speaking text")
+    }
 
     render(){
         var text: string = this.props.highlightedText as string;
@@ -28,6 +35,8 @@ export default class HighlightedText extends React.Component<IProps,IState>{
         return(
             <div className={h.highlightContainer}>
                 <p onClick={this.UnHighlightText} className={h.highlightedText}>{text}</p>
+                <Button>Speak text</Button>
+
             </div>
         ) 
         

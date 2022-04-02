@@ -20,5 +20,8 @@ export default interface IState {
 
 
     highlightedText?: string
+
+    isSpeaking?: boolean
 }
+
 
